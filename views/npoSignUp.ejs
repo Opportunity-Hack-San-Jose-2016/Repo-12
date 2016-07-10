@@ -1,0 +1,47 @@
+<html>
+<head>
+    <% include partials/head.ejs %>
+    <link rel='stylesheet' href='/stylesheets/styleSignUp.css' />
+    <!-- AngularJS -->
+    <script src= "../javascripts/angular/npoSignUpController.js"></script>
+</head>
+<body ng-app="npoSignUpApp" ng-controller="npoSignUpController">
+<% include partials/header.ejs %>
+<div class="container-fluid">
+
+    <div class="image" style="background-image: url(../images/twitter_image.png);" >
+        <div style="margin-top: 40px;" class="pull-right" id="linkToLogIn">
+            <h6 >Don't have an account? <a id="linkToLogIn" href="/logIn">Have an account? Log in >></a></h6>
+        </div>
+    </div>
+</div>
+<div id = "divSignUp" class = "col-sm-6" style="margin-top: -90px;">
+    <h1 class=" header">Join GoodHub Today.</h1>
+    <form name= "form" novalidate>
+        <div class="form-group col-sm-7">
+            <input type="text" class="form-control" id="orgName" ng-model="orgName" placeholder="Org Name" name = "orgName" ng-required="true">    
+        </div>
+        <div class="form-group col-sm-7">
+            <input type="text" class="form-control" id="orgType" ng-model="orgType" placeholder="Org Type" name = "orgType" ng-required="true">            
+        </div>
+        <div class="form-group col-sm-7">
+            <input type="email" class="form-control" id="email" ng-model="email" placeholder="official email" name = "email" ng-required="true">           
+        </div>
+        <div class="form-group col-sm-7">
+            <input type="password" class="form-control" id="password" ng-model="password" placeholder="Password" name = "password" ng-required="true">           
+        </div>
+        <div class="form-group col-sm-7">
+            <input type="text" class="form-control" name="startDate" ng-model="startDate" placeholder="Start Date" id="startDate" ng-required="true"/>
+        </div>
+        <div class="form-group col-sm-7">
+            <input type="text" class="form-control" id="location" ng-model="location" placeholder="Location" name = "location" ng-required="true">
+        </div>
+        <div class="form-group col-sm-7">
+            <button type="submit" ng-click="signUp()" ng-disabled="form.$invalid" class="buttonLogin btn">Sign Up</button>
+        </div>
+    </form>
+</div>
+<% include partials/footer.ejs %>
+<% include partials/jsDefaults.ejs %>
+</body>
+</html>

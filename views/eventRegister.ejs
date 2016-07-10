@@ -1,0 +1,49 @@
+<html>
+<head>
+	<% include partials/head.ejs %>
+    <link rel='stylesheet' href='/stylesheets/styleSignUp.css' />
+    <!-- AngularJS -->
+	<script src= "../javascripts/angular/signUpController.js"></script>
+</head>
+<body ng-app="signUpApp" ng-controller="signUpController">
+	<% include partials/header.ejs %>
+    <div class="container-fluid">
+        <div class="image" style="background-image: url(../images/twitter_image.png);" >
+            <div style="margin-top: 40px;" class="pull-right" id="linkToLogIn">
+                 <h6 >Don't have an account? <a id="linkToLogIn" href="/logIn">Have an account? Log in >></a></h6>
+            </div>
+         </div>
+    </div>
+    <div id = "divSignUp" class = "col-sm-6" style="margin-top: -90px;">
+        <h1 class=" header"> Post a New Project.</h1>
+        <form name= "form" novalidate>
+            <div class="form-group col-sm-7">
+                <input type="text" class="form-control" id="firstName" ng-model="firstName" placeholder="Project Name" name = "ProjectName" ng-required="true">
+                <p class="error" ng-show="form.firstName.$invalid && form.firstName.$touched">You must fill out your Project name.</p>
+            </div>
+            <div class="form-group col-sm-7">
+                <input type="text area" class="form-control" id="email" ng-model="email" placeholder="Brief your Project" name = "email" ng-required="true">
+                <p class="error" ng-show="form.email.$invalid && form.email.$touched">You must Brief your project.</p>
+            </div>
+            <div class="form-group col-sm-7">
+				<input type="text" class="form-control" name="dateOfBirth" ng-model="dateOfBirth" placeholder="Start Date (yyyy-mm-dd)"
+					id="dateOfBirth" ng-required="true"/>
+					<p class="error"  ng-show="form.dateOfBirth.$invalid && form.dateOfBirth.$touched">You must fill out your Start Date.</p>
+			</div>
+            <div class="form-group col-sm-7">
+                <input type="text" class="form-control" id="lastName" ng-model="lastName" placeholder="Production Time" name = "lastName" ng-required="true">
+                <p class="error" ng-show="form.lastName.$invalid && form.lastName.$touched">You must fill out the Time Span.</p>
+            </div>
+			 <div class="form-group col-sm-7">
+                <input type="text" class="form-control" id="location" ng-model="location" placeholder="Location" name = "location" ng-required="true">
+            	<p class="error" ng-show="form.location.$invalid && form.location.$touched">You must fill out your location.</p>
+            </div>
+            <div class="form-group col-sm-7">
+                <button type="submit" ng-click="signUp()" ng-disabled="form.$invalid" class="buttonLogin btn">Post Project</button>
+            </div>
+        </form>
+    </div>
+	<% include partials/footer.ejs %>
+	<% include partials/jsDefaults.ejs %>
+</body>
+</html>
